@@ -1,0 +1,108 @@
+:root {
+  --navy: #3852b4;
+  --navy-light: #1841a0;
+  --teal: #0d8c6d;
+  --gold: #f8aa44;
+  --red: #d9534f;
+  --card: #ffffff;
+  --border: #e0e0e0;
+  --bg: #f9f9f9;
+  --text: #333333;
+  --text-2: #666666;
+  --text-3: #999999;
+
+  /* Unified sizing variables */
+  --sidebar-width: 150px;
+  --topbar-height: 64px;
+  --font-sm: 12px;
+  --font-md: 14px;
+  --font-lg: 18px;
+  --font-xl: 22px;
+  --navy-dark: #0f2042;
+}
+
+.sidebar {
+  width:  220px;
+  background: var(--navy);
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  display: flex; flex-direction: column;
+  z-index: 100;
+  overflow-y: auto;
+}
+.sidebar .sidebar-logo {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; gap: 10px;
+}
+.sidebar .logo-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white; /* remove this if you don’t want gold behind logo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/*for the logo */
+.sidebar .logo-mark img.logo-img {
+  width: 350%;
+  margin-top: 6px;
+  margin-left: 2px;
+  height: 200%;
+  object-fit: cover;  /* or cover depending on your preference */
+  border-radius: 50%;
+}
+
+.sidebar .logo-title { font-family:  'Segoe UI', Roboto, sans-serif; font-size: var(--font-md); color: white; }
+.sidebar .logo-sub { font-size: 11px; color: rgba(255,255,255,0.45); }
+.sidebar .sidebar-section { padding: 12px; font-size: 11px; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.sidebar .nav-item {
+  display: flex; align-items: center; gap: 10px;
+  margin: 2px 8px; padding: 12px 14px; /* more breathing room */
+  border-radius: 8px; cursor: pointer;
+  color: rgba(255,255,255,0.75); font-size: var(--font-md);
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.sidebar .nav-item:hover {
+  background: rgba(255,255,255,0.14);
+  color: white;
+}
+.sidebar .nav-item.active {
+  background: #f8aa44;
+  color: var(--navy-dark);
+  font-weight: 600;
+}
+.sidebar .sidebar-footer {
+  margin-top: auto; padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; gap: 10px;
+}
+.sidebar .avatar-sm {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy-dark);
+}
+
+.header {
+  height: var(--header-h);
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}

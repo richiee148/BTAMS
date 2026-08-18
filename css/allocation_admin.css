@@ -1,0 +1,452 @@
+:root {
+  --font-family:  'Segoe UI', Roboto, sans-serif;
+  --sidebar-width: 220px;   /* match your actual sidebar width */
+  --header-height: 60px;    /* match your topbar/header height */
+  
+  /* Brand Palette */
+  --bg-primary: #f5f7fa;
+  --bg-card: #ffffff;
+  --text-main: #0c1e3e;
+  --text-muted: #5e6e85;
+  --border-color: #e9eff5;
+  
+  /* Accent Colors */
+  --color-blue-dark: #0f2547;
+  --color-green: #0d8a6b;
+  --color-orange: #f2994a;
+  --color-red: #eb5757;
+  --color-blue-light: #4c6ef5;
+
+
+}
+
+/* Main content wrapper */
+.main-wrapper {
+  max-width: calc(100% - var(--sidebar-width));
+  width: auto;
+  margin: 0 auto;
+  padding: 24px 16px;
+  margin-left: 224px;   /* beside sidebar */
+  margin-top: 13px;    /* neatly below topbar */
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease;
+}
+
+
+/* School Year Filter */
+.main-content .form-label {
+  margin-left: 0;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.main-content .form-select {
+  width: 180px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-card);
+  font-size: 14px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.main-content .form-select:hover {
+  border-color: var(--color-blue-light);
+}
+.main-content .form-select:focus {
+  border-color: var(--color-blue-dark);
+  box-shadow: 0 0 0 3px rgba(76, 110, 245, 0.2);
+  outline: none;
+}
+
+/* Collapsible sidebar support */
+.sidebar.collapsed ~ .allocation-container {
+  margin-left: 80px; /* collapsed sidebar width */
+}
+.card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--color-blue-dark);
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;                            
+  margin-bottom: -3px;                   
+}
+
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  border-top: 4px solid transparent;
+  background-color: var(--bg-card);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 80%;       
+  margin-left: 0;
+}
+
+/* Color indicator top-borders as in design */
+.budget-card { border-top: 4px solid var(--color-blue-dark); }
+.allocated-card { border-top: 4px solid var(--color-orange); }
+.disbursed-card { border-top: 4px solid var(--color-green); }
+.unallocated-card { border-top: 4px solid var(--color-red); }
+
+
+.kpi-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  align-items: center;
+}
+
+
+.kpi-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+ 
+}
+
+.kpi-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-blue-dark);
+  margin-top: 2px;
+
+}
+
+.kpi-subtext {
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.kpi-subtext.positive { color: var(--color-green); }
+.kpi-subtext.negative { color: var(--color-orange); }
+
+/* --- Main Layout Grid Split --- */
+.main-layout-grid {
+  display: grid;
+  gap: 24px;
+}
+
+/* Section Title formatting */
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-blue-dark);
+}
+
+/* --- Table Records Section --- */
+.table-section {
+  padding: 24px;
+  margin-top: -20px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  margin-top: -20px;
+}
+
+.btn-primary {
+  background-color: var(--color-blue-dark);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.table-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.select-wrapper select {
+  padding: 8px 32px 8px 12px;
+  border: 1px solid var(--border-color);
+  background-color: #fff;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "\25BC";
+  font-size: 8px;
+  color: var(--text-muted);
+  position: absolute;
+  right: 12px;
+  top: 52%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th, 
+.data-table td {
+  padding: 16px 12px;
+  font-size: 14px;
+}
+
+.data-table th {
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.project-name {
+  color: var(--color-blue-dark);
+  font-weight: 500;
+}
+
+/* Badges Base */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Sector Badges styling */
+.sector-education { background-color: #eef2f6; color: #506690; }
+.sector-infrastructure { background-color: #fef6ec; color: #b7791f; }
+.sector-healthcare { background-color: #e6f6f1; color: #234e52; }
+
+/* Status Badges styling */
+.status-active { background-color: #eefcf7; color: #2f855a; }
+.status-ongoing { background-color: #fffaf0; color: #dd6b20; }
+.status-pending { background-color: #fffaf0; color: #dd6b20; }
+.status-completed { background-color: #edf2f7; color: #4a5568; }
+
+
+/* --- Sector Allocation (Right Column) --- */
+.chart-section {
+  padding: 24px;
+}
+
+/* Mock CSS Bar Chart layout */
+.chart-container {
+  display: flex;
+  height: 240px;
+  margin-top: 24px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.chart-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.chart-bars-wrapper {
+  position: relative;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.gridlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.gridlines div {
+  width: 100%;
+  border-top: 1px dashed #edf2f7;
+}
+
+.gridlines div:last-child {
+  border-top: 1px solid var(--border-color); /* solid base line */
+}
+
+.bars-data {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 0 10px;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  width: 80px;
+}
+
+.bar-pair {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+  height: calc(100% - 25px); /* Leave room for labels below */
+  width: 100%;
+  justify-content: center;
+}
+
+.bar {
+  width: 24px;
+  border-radius: 4px 4px 0 0;
+  transition: transform 0.2s ease;
+}
+
+.bar.primary {
+  background-color: var(--color-blue-dark);
+}
+
+.bar.secondary {
+  background-color: var(--color-green);
+}
+
+.bar-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* Bottom Progress Bars */
+.progress-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.progress-name {
+  color: var(--color-blue-dark);
+}
+
+.progress-amount {
+  color: var(--text-muted);
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background-color: #f1f3f7;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* Customized progress bar coloring matching the UI rules */
+.fill-education { background-color: var(--color-blue-dark); }
+.fill-infrastructure { background-color: var(--color-green); }
+.fill-healthcare { background-color: var(--color-orange); }
+.fill-others { background-color: #8293a9; }
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1100px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .navbar {
+    padding: 0 16px;
+    flex-wrap: wrap;
+    height: auto;
+    padding-bottom: 12px;
+    gap: 12px;
+  }
+  .search-container {
+    width: 100%;
+  }
+  .dashboard-container {
+    padding: 16px;
+  }
+}

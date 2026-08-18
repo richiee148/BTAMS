@@ -1,0 +1,374 @@
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #2d3e50;
+  margin: 0;
+  padding: 0;
+}
+
+.report-container {
+  margin-left: 220px;
+  margin-top: 64px;
+  padding: 30px;
+  min-height: calc(100vh - 64px);
+  background-color: #ffffff;
+}
+
+.report-header,
+.school-year-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.download-btn {
+  background-color: #ffffff;
+  color: #496da2;
+  border: 1px solid #c9d5e7;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #b3c5e0;
+}
+
+.kpi-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.kpi-card {
+  padding: 20px;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.card-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.card-value {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.approved-card {
+  background-color: #4e8fd4;
+}
+
+.actual-card {
+  background-color: #485b73;
+}
+
+.remaining-card {
+  background-color: #3ea06b;
+}
+
+.utilization-card {
+  background-color: #3ea06b;
+}
+
+/* Analytics Section */
+.analytics-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.analytics-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+/* Budget Utilization Gauge */
+.gauge-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.gauge-svg {
+  width: 200px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.gauge-background {
+  fill: none;
+  stroke: #e2e8f0;
+  stroke-width: 8;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke: #3ea06b;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.gauge-center-text {
+  text-align: center;
+}
+
+.gauge-percentage {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e3a5f;
+}
+
+.gauge-sub {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 4px;
+}
+
+.utilization-description {
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Monthly Bar Chart */
+.chart-content {
+  display: flex;
+  justify-content: center;
+}
+
+.monthly-bar-chart {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.y-axis-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #a0aec0;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.chart-bars-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.month-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar-pair {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  height: 200px;
+  margin-bottom: 8px;
+}
+
+.bar {
+  width: 20px;
+  border-radius: 4px 4px 0 0;
+  transition: opacity 0.2s;
+}
+
+.bar-green {
+  background-color: #48c774;
+}
+
+.bar-navy {
+  background-color: #1e3a5f;
+}
+
+.month-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #718096;
+}
+
+/* School year row */
+.school-year-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.school-year-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4a5568;
+}
+
+.school-year-selector label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.school-year-selector select {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #2d3e50;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Search & Filter Controls */
+.search-filter-section {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-box, .filter-select {
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-select {
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.search-box::placeholder {
+  color: #a0aec0;
+}
+
+/* Line Items Table (Sectors) */
+.line-items-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.line-items-table th,
+.line-items-table td {
+  padding: 15px 10px;
+  vertical-align: middle;
+}
+
+.line-items-table thead th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  color: #718096;
+  border-bottom: 2px solid #e2e8f0;
+  background-color: #f8f9fa;
+}
+
+.line-items-table thead th.numeric-col,
+.line-items-table td.numeric-cell {
+  text-align: right;
+}
+
+.line-items-table tbody td {
+  font-size: 14px;
+  border-bottom: 1px solid #edf2f7;
+  color: #4a5568;
+}
+
+.line-items-table .numeric-cell {
+  text-align: right;
+  font-family: 'Courier New', monospace;
+  font-weight: 500;
+}
+
+.line-items-table .bold-cell {
+  font-weight: 600;
+  color: #2d3e50;
+}
+
+.utilization-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pill-high {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.pill-medium {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.pill-low {
+  background-color: #e6f6ec;
+  color: #38a169;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .analytics-row-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-filter-section {
+    flex-direction: column;
+  }
+
+  .search-box {
+    min-width: 100%;
+  }
+
+  .filter-select {
+    min-width: 100%;
+  }
+}

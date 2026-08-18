@@ -1,0 +1,203 @@
+:root {
+  --font-family: 'Segoe UI', Roboto, sans-serif;
+  --sidebar-width: 220px;  
+  --header-height: 60px;   
+
+  /* Brand Palette */
+  --bg-primary: #f5f7fa;
+  --bg-card: #ffffff;
+  --text-main: #0c1e3e;
+  --text-muted: #5e6e85;
+  --border-color: #e9eff5;
+
+  /* Accent Colors */
+  --color-blue-dark: #0f2547;
+  --color-green: #0d8a6b;
+  --color-orange: #f2994a;
+  --color-red: #eb5757;
+  --color-blue-light: #4c6ef5;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--color-blue-dark);
+  overflow-y: auto;
+  z-index: 100;
+  color: white;
+  font-family: var(--font-family);
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 40px;
+  margin-left: 210px;   /* ensures content sits beside sidebar */
+  margin-top: 5px;    /* ensures content clears the topbar */
+  position: relative;
+  min-height: calc(100vh - 60px);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* School Year Filter */
+.main-content .form-label {
+  margin-left: 0;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.main-content .form-select {
+  width: 180px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-card);
+  font-size: 14px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.main-content .form-select:hover {
+  border-color: var(--color-blue-light);
+}
+.main-content .form-select:focus {
+  border-color: var(--color-blue-dark);
+  box-shadow: 0 0 0 3px rgba(76, 110, 245, 0.2);
+  outline: none;
+}
+
+/* ===== Stat Cards ===== */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 20px 0 32px;
+}
+.stat-card {
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: white;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+.stat-card.blue { background: linear-gradient(135deg, #1d3a80, #0f2557); }
+.stat-card.green { background: linear-gradient(135deg, #0d8c6d, #0a6b52); }
+.stat-card.gold { background: linear-gradient(135deg, #e8a020, #c97d00); }
+.stat-card.red { background: linear-gradient(135deg, #d9534f, #b52f2b); }
+.stat-card .stat-icon-wrap svg { width: 48px; height: 48px; fill: white; }
+.stat-card .stat-body .stat-label { font-size: var(--font-md); opacity: 0.85; }
+.stat-card .stat-body .stat-value { font-size: var(--font-xl); font-weight: 700; }
+.stat-card .stat-body .stat-change { font-size: var(--font-md); opacity: 0.75; }
+.stat-card .stat-change.neg { color: #ffd1d1; }
+
+/* ===== Charts Layout ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Chart cards */
+.card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.card:hover { box-shadow: 0 5px 12px rgba(0,0,0,0.1); }
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.card-title { font-size: var(--font-lg); font-weight: 700; color: var(--text-main); }
+.card-action { font-size: var(--font-md); color: var(--color-green); cursor: pointer; }
+
+/* Chart area */
+.chart-wrap {
+  flex: 1;
+  height: 300px;
+}
+
+/* Donut chart */
+.donut-container { 
+  height: 200px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  position: relative; 
+}
+.donut-main { 
+  font-size: var(--font-lg); 
+  font-weight: 700; 
+  color: var(--text-main); 
+}
+.donut-sub { 
+  font-size: var(--font-md); 
+  color: var(--text-muted); 
+}
+
+.donut-legend {
+  display: flex;
+  flex-direction: row;   /* horizontal layout */
+  flex-wrap: nowrap;     /* prevent wrapping */
+  justify-content: center; /* center under donut */
+  gap: 20px;             /* spacing between labels */
+  margin-top: 16px;
+  font-size: var(--font-md);
+  color: var(--text-muted);
+}
+
+.donut-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,0,0,0.02);
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.donut-legend span:hover { background: rgba(0,0,0,0.06); }
+
+.legend-box { width: 12px; height: 12px; border-radius: 3px; }
+.legend-box.education { background: #0f2557; }
+.legend-box.infrastructure { background: #0d8c6d; }
+.legend-box.healthcare { background: #e8a020; }
+.legend-box.others { background: #8a95b0; }
+
+/* ===== Data Table ===== */
+.data-table { font-size: var(--font-md); width: 100%; border-collapse: collapse; }
+.data-table th { background: var(--color-blue-dark); color: white; text-align: left; }
+.data-table th, .data-table td { padding: 14px; border-bottom: 1px solid var(--border-color); }
+.data-table tr:hover { background: rgba(0,0,0,0.03); }
+
+/* ===== Progress Bars ===== */
+.prog-row { font-size: var(--font-md); margin-bottom: 8px; display: flex; justify-content: space-between; }
+.prog-track { background: var(--border-color); border-radius: 6px; height: 12px; }
+.prog-fill { height: 12px; border-radius: 6px; transition: width 0.4s ease; }
+.prog-fill.navy { background: var(--color-blue-dark); }
+.prog-fill.teal { background: var(--color-green); }
+.prog-fill.gold { background: var(--color-orange); }
+.prog-fill.gray { background: #8a95b0; }
+.prog-summary { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; font-size: var(--font-md); color: var(--text-muted); }
